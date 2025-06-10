@@ -29,9 +29,6 @@ public class OrderTest {
         double expected = 500000 + (2 * 50000); // 600000
         double actual = order.calculateTotal();
         
-        System.out.println("=== Нийт үнийн тест ===");
-        System.out.println("Хүлээгдэж буй нийт үнэ: " + expected);
-        System.out.println("Бодитоор тооцсон нийт үнэ: " + actual);
 
         assertEquals(expected, actual, 0.001);
     }
@@ -41,17 +38,12 @@ public class OrderTest {
         int initialStock1 = product1.getStock();
         int initialStock2 = product2.getStock();
 
-        System.out.println("=== Захиалга баталгаажуулалтын тест ===");
-        System.out.println("Эхний бүтээгдэхүүний үлдэгдэл: " + initialStock1);
-        System.out.println("Хоёр дахь бүтээгдэхүүний үлдэгдэл: " + initialStock2);
 
         order.confirmOrder();
 
         int newStock1 = product1.getStock();
         int newStock2 = product2.getStock();
 
-        System.out.println("Захиалгын дараах үлдэгдэл (гар утас): " + newStock1);
-        System.out.println("Захиалгын дараах үлдэгдэл (чихэвч): " + newStock2);
 
         assertEquals(initialStock1 - item1.getQuantity(), newStock1);
         assertEquals(initialStock2 - item2.getQuantity(), newStock2);
